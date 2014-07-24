@@ -1,0 +1,26 @@
+﻿<div class="col-xs-12 text-center">
+    <div class="alert alert-warning" ng-show="monthReportLoading">Please wait, loading the monthly report...</div>
+    <canvas width="800" height="400" id="sales-by-month" ng-show="!monthReportLoading"></canvas>
+</div>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Sales Person</th>
+            <th>Total Sales</th>
+            <th>Widgets Sold</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-show="salesLoading">
+            <td colspan="5">
+                <div class="alert alert-warning">Please wait, loading the sales report...</div>
+            </td>
+        </tr>
+        <tr ng-repeat="sale in sales">
+            <td><a href="#/person/{{sale.Salesperson}}">{{sale.Salesperson}}</a></td>
+            <td>{{sale.Count}}</td>
+            <td>{{sale.Widgets}}</td>
+        </tr>
+    </tbody>
+</table>

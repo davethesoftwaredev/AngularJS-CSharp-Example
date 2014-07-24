@@ -1,0 +1,26 @@
+﻿<div ng-show="loading" class="alert alert-warning">Please wait, loading the report for {{salesperson}}</div>
+<table class="table table-hover table-striped" ng-show="!loading">
+    <thead>
+        <tr>
+            <th>Sales Person</th>
+            <th>Date</th>
+            <th>Client</th>
+            <th>Widget</th>
+            <th>Qty</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-show="salesLoading">
+            <td colspan="5">
+                <div class="alert alert-warning">Please wait, loading the sales report...</div>
+            </td>
+        </tr>
+        <tr ng-repeat="sale in sales">
+            <td>{{sale.Salesperson}}</td>
+            <td>{{sale.Date | date : 'shortdate'}}</td>
+            <td>{{sale.Client}}</td>
+            <td>{{sale.Widget}}</td>
+            <td>{{sale.Qty}}</td>
+        </tr>
+    </tbody>
+</table>
